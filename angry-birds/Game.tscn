@@ -1,0 +1,249 @@
+[gd_scene load_steps=15 format=3 uid="uid://dj4c7m8j1k8gx"]
+
+[ext_resource type="Script" path="res://Scripts/Game.cs" id="1_pbj5d"]
+[ext_resource type="Script" path="res://Scripts/Pickaxe.cs" id="2_1jnvd"]
+[ext_resource type="Texture2D" uid="uid://d07b1hwjw6his" path="res://Sprites/Background.webp" id="2_vrmte"]
+[ext_resource type="Texture2D" uid="uid://cev61sp44qrrm" path="res://Sprites/Pickaxe.png" id="4_dexqv"]
+[ext_resource type="Script" path="res://Scripts/Stone.cs" id="5_hteh5"]
+[ext_resource type="Texture2D" uid="uid://kus37l86j2lb" path="res://Sprites/Stone.webp" id="6_81he1"]
+[ext_resource type="Texture2D" uid="uid://1pvkwohkb6kl" path="res://Sprites/Diamond.webp" id="6_kedin"]
+[ext_resource type="Texture2D" uid="uid://cy0s4h3q04lm4" path="res://Sprites/Gold.webp" id="8_airs5"]
+[ext_resource type="Texture2D" uid="uid://c2ur1pslwih2t" path="res://Sprites/Emerald.webp" id="9_nbmmn"]
+[ext_resource type="Script" path="res://Scripts/GameAudio.cs" id="10_2ieeh"]
+[ext_resource type="AudioStream" uid="uid://cu4lwg0mkvsc1" path="res://AngryBirds.mp3" id="10_er3i3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xie0s"]
+size = Vector2(90, 90)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_byg7l"]
+size = Vector2(153, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bi8yo"]
+size = Vector2(1151, 84)
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_pbj5d")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(-5.96046e-08, -1)
+scale = Vector2(1.91833, 3.11005)
+texture = ExtResource("2_vrmte")
+
+[node name="Pickaxe" type="Node2D" parent="."]
+script = ExtResource("2_1jnvd")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Pickaxe"]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pickaxe/RigidBody2D"]
+shape = SubResource("RectangleShape2D_xie0s")
+
+[node name="Sprite2D" type="Sprite2D" parent="Pickaxe/RigidBody2D"]
+position = Vector2(-9.53674e-07, 0.999995)
+scale = Vector2(0.261111, 0.261111)
+texture = ExtResource("4_dexqv")
+
+[node name="Stone1" type="Area2D" parent="."]
+position = Vector2(-493, -154)
+collision_layer = 2
+script = ExtResource("5_hteh5")
+
+[node name="Sprite2D" type="Sprite2D" parent="Stone1"]
+position = Vector2(-1.00003, 0.999985)
+scale = Vector2(0.513889, 0.338867)
+texture = ExtResource("6_81he1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stone1"]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_byg7l")
+
+[node name="Stone2" type="Area2D" parent="."]
+position = Vector2(-333, -156)
+collision_layer = 2
+script = ExtResource("5_hteh5")
+
+[node name="Sprite2D" type="Sprite2D" parent="Stone2"]
+position = Vector2(0.499939, 2.99608)
+scale = Vector2(0.513889, 0.338867)
+texture = ExtResource("6_81he1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stone2"]
+position = Vector2(0.499969, 0.996094)
+shape = SubResource("RectangleShape2D_byg7l")
+
+[node name="Stone3" type="Area2D" parent="."]
+position = Vector2(-169, -156)
+collision_layer = 2
+script = ExtResource("5_hteh5")
+
+[node name="Sprite2D" type="Sprite2D" parent="Stone3"]
+position = Vector2(0.499969, 1.99608)
+scale = Vector2(0.513889, 0.338867)
+texture = ExtResource("6_81he1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stone3"]
+position = Vector2(0.5, -0.00390625)
+shape = SubResource("RectangleShape2D_byg7l")
+
+[node name="Stone4" type="Area2D" parent="."]
+position = Vector2(-2, -156)
+collision_layer = 2
+script = ExtResource("5_hteh5")
+
+[node name="Sprite2D" type="Sprite2D" parent="Stone4"]
+position = Vector2(-1.00003, 0.999985)
+scale = Vector2(0.513889, 0.338867)
+texture = ExtResource("6_81he1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stone4"]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_byg7l")
+
+[node name="Stone5" type="Area2D" parent="."]
+position = Vector2(165, -153)
+collision_layer = 2
+script = ExtResource("5_hteh5")
+
+[node name="Sprite2D" type="Sprite2D" parent="Stone5"]
+position = Vector2(-1.00003, -1.52588e-05)
+scale = Vector2(0.513889, 0.338867)
+texture = ExtResource("6_81he1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stone5"]
+position = Vector2(-1, -1)
+shape = SubResource("RectangleShape2D_byg7l")
+
+[node name="Stone6" type="Area2D" parent="."]
+position = Vector2(331, -153)
+collision_layer = 2
+script = ExtResource("5_hteh5")
+
+[node name="Sprite2D" type="Sprite2D" parent="Stone6"]
+position = Vector2(-1.00006, -1.52588e-05)
+scale = Vector2(0.513889, 0.338867)
+texture = ExtResource("6_81he1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stone6"]
+position = Vector2(-1, -1)
+shape = SubResource("RectangleShape2D_byg7l")
+
+[node name="Stone7" type="Area2D" parent="."]
+position = Vector2(494, -152)
+collision_layer = 2
+script = ExtResource("5_hteh5")
+
+[node name="Sprite2D" type="Sprite2D" parent="Stone7"]
+position = Vector2(-2.00003, -1.52588e-05)
+scale = Vector2(0.513889, 0.338867)
+texture = ExtResource("6_81he1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stone7"]
+position = Vector2(1, -2)
+shape = SubResource("RectangleShape2D_byg7l")
+
+[node name="Gold Ore1" type="Area2D" parent="."]
+position = Vector2(-331, -268)
+collision_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Gold Ore1"]
+position = Vector2(0.249969, 1.99803)
+scale = Vector2(0.423611, 0.277767)
+texture = ExtResource("8_airs5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gold Ore1"]
+position = Vector2(1, 1.99609)
+shape = SubResource("RectangleShape2D_byg7l")
+
+[node name="Gold Ore2" type="Area2D" parent="."]
+position = Vector2(-2, -266)
+collision_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Gold Ore2"]
+position = Vector2(2.24997, 1.99803)
+scale = Vector2(0.423611, 0.277767)
+texture = ExtResource("8_airs5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gold Ore2"]
+position = Vector2(3, 1.99609)
+shape = SubResource("RectangleShape2D_byg7l")
+
+[node name="Gold Ore3" type="Area2D" parent="."]
+position = Vector2(330, -264)
+collision_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Gold Ore3"]
+position = Vector2(-0.750031, 0.998032)
+scale = Vector2(0.423611, 0.277767)
+texture = ExtResource("8_airs5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gold Ore3"]
+position = Vector2(0, 0.996094)
+shape = SubResource("RectangleShape2D_byg7l")
+
+[node name="Emerald1" type="Area2D" parent="."]
+position = Vector2(-167, -263)
+collision_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Emerald1"]
+position = Vector2(1.99994, -2.00002)
+scale = Vector2(0.423611, 0.277767)
+texture = ExtResource("9_nbmmn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Emerald1"]
+position = Vector2(-1, -2)
+shape = SubResource("RectangleShape2D_byg7l")
+
+[node name="Emerald2" type="Area2D" parent="."]
+position = Vector2(166, -268)
+collision_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Emerald2"]
+position = Vector2(-3.05176e-05, 2.99998)
+scale = Vector2(0.423611, 0.277767)
+texture = ExtResource("9_nbmmn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Emerald2"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_byg7l")
+
+[node name="Diamond1" type="Area2D" parent="."]
+position = Vector2(-492, -266)
+collision_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Diamond1"]
+position = Vector2(-3.05176e-05, 0.999985)
+scale = Vector2(0.423611, 0.277767)
+texture = ExtResource("6_kedin")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Diamond1"]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_byg7l")
+
+[node name="Diamond2" type="Area2D" parent="."]
+position = Vector2(495, -264)
+collision_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Diamond2"]
+position = Vector2(-3.05176e-05, 1.99998)
+scale = Vector2(0.423611, 0.277767)
+texture = ExtResource("6_kedin")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Diamond2"]
+position = Vector2(-1, 1)
+shape = SubResource("RectangleShape2D_byg7l")
+
+[node name="Ground Layer" type="StaticBody2D" parent="."]
+position = Vector2(1, 311)
+collision_layer = 255
+collision_mask = 255
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground Layer"]
+position = Vector2(-2, -32)
+shape = SubResource("RectangleShape2D_bi8yo")
+one_way_collision = true
+
+[node name="Game Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_er3i3")
+script = ExtResource("10_2ieeh")
